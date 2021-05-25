@@ -1,0 +1,26 @@
+
+<!-- Boton de redicción a la ruta "/new" -->
+<button style="margin:20px " routerLink="/new">
+    + Crear Usuario
+</button>
+
+<div *ngIf="users">
+    <table style="margin:20px">
+        <!-- nombre columnas -->
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>email</th>
+            <th>Acción</th>
+        </tr>
+        <!-- datos por usuario-->
+        <tr *ngFor="let user of users; let i = index">
+            <td>{{user.id}}</td>
+            <td>{{user.first_name}} {{users.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td (click)="deleteUser(user.id,i)" style="cursor:pointer">Eliminar</td>
+        </tr>
+    </table>
+
+
+</div>
